@@ -1,8 +1,8 @@
-import Head from "next/head";
-import { Article } from "src/components/article";
-import { Nav } from "src/components/nav";
-import MainLayout from "src/layouts";
-import styles from "src/styles/Home.module.scss";
+import Head from 'next/head';
+import { Article } from 'src/components/article';
+import { Nav } from 'src/components/nav';
+import MainLayout from 'src/layouts';
+import styles from 'src/styles/Home.module.scss';
 
 const Home = (props) => {
   // 記事を取得できているか確認
@@ -31,8 +31,10 @@ const Home = (props) => {
 
 export const getStaticProps = async () => {
   const pageSize = 10;
-  const apiKey = "0ddc265fb75842a681522c5025d4206f";
-  const topRes = await fetch(`https://newsapi.org/v2/top-headlines?country=jp&pageSize=${pageSize}&apiKey=${apiKey}`);
+  const apiKey = '';
+  const topRes = await fetch(
+    `https://newsapi.org/v2/top-headlines?country=jp&pageSize=${pageSize}&apiKey=${apiKey}`
+  );
   const topJson = await topRes.json();
   const topArticles = topJson?.articles;
 
